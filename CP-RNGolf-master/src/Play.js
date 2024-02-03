@@ -8,8 +8,8 @@ class Play extends Phaser.Scene {
         this.SHOT_VELOCITY_X = 200
         this.SHOT_VELOCITY_Y_MIN = 700
         this.SHOT_VELOCITY_Y_MAX = 1100
-        this.shotsTaken = 0; 
-        this.goalsScored = 0;
+        this.shotsTaken = 0
+        this.goalsScored = 0
         
 
 
@@ -66,7 +66,7 @@ class Play extends Phaser.Scene {
         this.input.on('pointerdown',(pointer) =>{
             let deltaX = pointer.x - this.ball.x
             this.ball.body.setVelocityX(deltaX)
-            let shotDirection = pointer.y <= this.ball.y ? 1 : -1; 
+            let shotDirection = pointer.y <= this.ball.y ? 1 : -1
             this.ball.body.setVelocityY(Phaser.Math.Between(this.SHOT_VELOCITY_Y_MIN, this.SHOT_VELOCITY_Y_MAX) * shotDirection)
             this.shotsTaken++
             this.shotsText.setText('Shots: ' + this.shotsTaken)
@@ -100,7 +100,7 @@ class Play extends Phaser.Scene {
     }
 
     update() {
-        const buffer = 5; 
+        const buffer = 5
         if (this.wallA.x <= this.wallA.width / 2 + buffer) {
             this.wallA.body.velocity.x = Math.abs(this.wallA.body.velocity.x)
             this.wallA.x = this.wallA.width / 2 + buffer
